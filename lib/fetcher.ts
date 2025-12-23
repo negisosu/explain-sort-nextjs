@@ -2,6 +2,8 @@
 
 const API_URL = process.env.API_URL
 
+const revalidate = 60
+
 export async function apiFetch<T>(
     input: string,
     options: RequestInit = {}
@@ -51,7 +53,11 @@ export async function strapiFetch<T>(
         url,
         {
             ...options,
-            headers: reqHeaders
+            headers: reqHeaders,
+            cache: "force-cache",
+            next: {
+                revalidate: revalidate
+            }
         }
     )
 

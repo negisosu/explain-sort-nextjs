@@ -8,10 +8,10 @@ type MarkdownPreviewProps = {
 
 export function MarkdownPreview({ source }: MarkdownPreviewProps) {
     return(
-        <>
+        <div data-color-mode="light">
             <MDEditor.Markdown
             source={source}
             />
-        </>
+        </div>
     )
 }
